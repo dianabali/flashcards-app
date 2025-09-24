@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barriecito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
 
 * {
     box-sizing: border-box;
@@ -13,7 +13,7 @@ body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
-    font-family: 'Barriecito', cursive;
+    font-family: 'Quintessential', cursive;
 }
 
 h1 {
@@ -23,9 +23,83 @@ h1 {
 h1 button {
     position: absolute;
     right: 0;
+    transform: translate(120%, -50%);
+    z-index: 2;
 }
 
-/* 3.1.46 */
+
+.btn {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+    padding: 10px 15px;
+}
+
+.btn-small {
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+.btn-ghost {
+    background-color: transparent;
+    border: 0;
+}
+
+.clear {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+
+.cards {
+    perspective: 1000px;
+    position: relative;
+    height: 300px;
+    width: 500px;
+    max-width: 100%;
+}
+
+.card {
+    position: absolute;
+    opacity: 0;
+    font-size: 15px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.card.active {
+    opacity: 1;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.inner-card {
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.inner-card-front, .inner-card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+    background: white;
+}
+
+
 
 
 
