@@ -123,7 +123,7 @@ h1 button {
     transform: rotateX(180deg);
 }
 
-/* .inner-card-front::after, .inner-card-back::after {
+.inner-card-front::after, .inner-card-back::after {
     content: "\f021";
     font-family: 'Font Awesome 5 Free';
     position: absolute;
@@ -132,7 +132,7 @@ h1 button {
     font-weight: bold;
     font-size: 16px;
     color: black;
-} */
+}
 
 
 
