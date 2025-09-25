@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
 * {
     box-sizing: border-box;
@@ -13,7 +13,7 @@ body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
-    font-family: 'Quintessential', cursive;
+    font-family: 'Roboto Flex', sans-serif;
 }
 
 h1 {
