@@ -64,6 +64,14 @@ function createCard(data, index) {
 
     // Append to container
     cardsContainer.appendChild(card);
+
+    // Update current card number
+    updateCurrentText();
+}
+
+// Show card number
+function updateCurrentText() {
+    currentEl.innerText = `${currentActiveCard + 1} / ${cardsEl.length}`;
 }
 
 // Show cards
