@@ -56,6 +56,9 @@ function createCard(data, index) {
         </div>
     `;
 
+    // Add click event to flip the card
+    card.addEventListener('click', () => card.classList.toggle('show-answer'));
+
     // Add to DOM cards
     cardsEl.push(card);
 
@@ -65,3 +68,5 @@ function createCard(data, index) {
 
 // Show cards
 createCards();
+
+
