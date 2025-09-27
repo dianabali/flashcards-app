@@ -78,3 +78,6 @@ function updateCurrentText() {
 createCards();
 
 
+// 7 
+
+
