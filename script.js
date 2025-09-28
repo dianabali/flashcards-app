@@ -79,5 +79,3 @@ createCards();
 
 
 // 7 
-
-
