@@ -78,6 +78,7 @@ function updateCurrentText() {
 createCards();
 
 // Event listeners
+// Next button
 nextBtn.addEventListener('click', () => {
     cardsEl[currentActiveCard].className = 'card left'; // Move current card to left
     currentActiveCard += 1; // Move to next card
@@ -90,3 +91,18 @@ nextBtn.addEventListener('click', () => {
     
     updateCurrentText();
 });
+
+// Previous button
+prevBtn.addEventListener('click', () => {
+    cardsEl[currentActiveCard].className = 'card right'; // Move current card to right
+    currentActiveCard -= 1; // Move to previous card
+
+    if(currentActiveCard < 0) {
+        currentActiveCard = 0; // Stay at first card
+    } 
+
+    cardsEl[currentActiveCard].className = 'card active'; // Set next card to active
+    
+    updateCurrentText();
+});
+
