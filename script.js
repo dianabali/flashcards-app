@@ -77,5 +77,16 @@ function updateCurrentText() {
 // Show cards
 createCards();
 
+// Event listeners
+nextBtn.addEventListener('click', () => {
+    cardsEl[currentActiveCard].className = 'card left'; // Move current card to left
+    currentActiveCard += 1; // Move to next card
 
-// 7 
+    if(currentActiveCard > cardsEl.length - 1) {
+        currentActiveCard = cardsEl.length - 1; // Stay at last card
+    } 
+
+    cardsEl[currentActiveCard].className = 'card active'; // Set next card to active
+    
+    updateCurrentText();
+});
