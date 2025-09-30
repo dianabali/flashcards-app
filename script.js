@@ -105,5 +105,3 @@ prevBtn.addEventListener('click', () => {
     
     updateCurrentText();
 });
-
-// don xhoni
