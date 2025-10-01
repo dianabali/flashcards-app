@@ -136,5 +136,7 @@ addCardBtn.addEventListener('click', () => {
 // Clear cards button
 clearBtn.addEventListener('click', () => {
     localStorage.clear(); 
-    location.reload(); // Reload the page to reflect changes
+    cardsContainer.innerHTML = '';
+
+    location.reload(); // Reload the page to reflect changes 
 });
