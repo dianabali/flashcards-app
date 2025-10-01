@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
 
 * {
     box-sizing: border-box;
@@ -9,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     height: 100vh;
     margin: 0;
     overflow: hidden;
@@ -29,7 +30,8 @@ body {
 
 .navbar h1 {
     margin: 0;
-    font-size: 2rem;
+    font-family: 'Baumans', system-ui;
+    font-size: 40px;
 }
 
 main {
