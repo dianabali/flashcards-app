@@ -17,17 +17,20 @@ let currentActiveCard = 0;
 const cardsEl = [];
 
 // Store card data
-const cardsData = [
-    { question: 'What is JavaScript?',
-      answer: 'JavaScript is a programming language that is commonly used in web development.'
-    },
-    { question: 'What is a closure?',
-      answer: 'A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function\'s variables and parameters, even after the outer function has returned.'
-    },
-    { question: 'What is HTML?',
-      answer: 'HTML (HyperText Markup Language) is the standard markup language used to create and structure content on the web.'
-    }
-];
+const cardsData = getCardsData();
+
+
+// const cardsData = [
+//     { question: 'What is JavaScript?',
+//       answer: 'JavaScript is a programming language that is commonly used in web development.'
+//     },
+//     { question: 'What is a closure?',
+//       answer: 'A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function\'s variables and parameters, even after the outer function has returned.'
+//     },
+//     { question: 'What is HTML?',
+//       answer: 'HTML (HyperText Markup Language) is the standard markup language used to create and structure content on the web.'
+//     }
+// ];
 
 // Create cards
 function createCards() {
@@ -74,6 +77,12 @@ function updateCurrentText() {
     currentEl.innerText = `${currentActiveCard + 1} / ${cardsEl.length}`;
 }
 
+// Get cards from local storage
+function getCardsData() {
+    const cards = JSON.parse(localStorage.getItem('cards'));
+    return cards === null ? [] : cards;
+}
+
 // Show cards
 createCards();
 
@@ -104,4 +113,14 @@ prevBtn.addEventListener('click', () => {
     cardsEl[currentActiveCard].className = 'card active'; // Set next card to active
     
     updateCurrentText();
+});
+
+// Show add container
+showBtn.addEventListener('click', () => {
+    addContainer.classList.add('show');
+});
+
+// Hide add container
+hideBtn.addEventListener('click', () => {
+    addContainer.classList.remove('show');
 });
