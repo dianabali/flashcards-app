@@ -19,19 +19,6 @@ const cardsEl = [];
 // Store card data
 const cardsData = getCardsData();
 
-
-// const cardsData = [
-//     { question: 'What is JavaScript?',
-//       answer: 'JavaScript is a programming language that is commonly used in web development.'
-//     },
-//     { question: 'What is a closure?',
-//       answer: 'A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function\'s variables and parameters, even after the outer function has returned.'
-//     },
-//     { question: 'What is HTML?',
-//       answer: 'HTML (HyperText Markup Language) is the standard markup language used to create and structure content on the web.'
-//     }
-// ];
-
 // Create cards
 function createCards() {
     cardsData.forEach((data, index) => createCard(data, index));
@@ -132,11 +119,16 @@ addCardBtn.addEventListener('click', () => {
 
     if(question.trim() && answer.trim()) {
         const newCard = { question, answer };
+        
         cardsData.push(newCard);
+
         localStorage.setItem('cards', JSON.stringify(cardsData));
+
         createCard(newCard, cardsData.length - 1);
+
         questionEL.value = '';
         answerEL.value = '';
+
         addContainer.classList.remove('show');
     }
 });
