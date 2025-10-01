@@ -124,3 +124,25 @@ showBtn.addEventListener('click', () => {
 hideBtn.addEventListener('click', () => {
     addContainer.classList.remove('show');
 });
+
+// Add new card
+addCardBtn.addEventListener('click', () => {
+    const question = questionEL.value;
+    const answer = answerEL.value;
+
+    if(question.trim() && answer.trim()) {
+        const newCard = { question, answer };
+        cardsData.push(newCard);
+        localStorage.setItem('cards', JSON.stringify(cardsData));
+        createCard(newCard, cardsData.length - 1);
+        questionEL.value = '';
+        answerEL.value = '';
+        addContainer.classList.remove('show');
+    }
+});
+
+// Clear cards button
+clearBtn.addEventListener('click', () => {
+    localStorage.clear(); 
+    location.reload(); // Reload the page to reflect changes
+});
