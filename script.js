@@ -29,25 +29,50 @@ function createCard(data, index) {
     const card = document.createElement('div');
     card.classList.add('card');
 
-    // Set the first card to be active
-    if(index === 0) {
+    if (index === 0) {
         card.classList.add('active');
     }
 
-    // Add inner HTML
-    card.innerHTML = `
+   card.innerHTML = `
         <div class="inner-card">
             <div class="inner-card-front">
+                <button class="delete-card"><i class="fas fa-trash"></i></button>
                 <p>${data.question}</p>
             </div>
             <div class="inner-card-back">
+                <button class="delete-card"><i class="fas fa-trash"></i></button>
                 <p>${data.answer}</p>
             </div>
         </div>
     `;
 
-    // Add click event to flip the card
-    card.addEventListener('click', () => card.classList.toggle('show-answer'));
+    // Flip on click (ignore if clicking delete button)
+    card.addEventListener('click', (e) => {
+        if (!e.target.closest('.delete-card')) {
+            card.classList.toggle('show-answer');
+        }
+    });
+
+    // Handle delete button
+    const deleteBtn = card.querySelector('.delete-card');
+    deleteBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent flip
+        cardsData.splice(index, 1); // Remove from data
+        localStorage.setItem('cards', JSON.stringify(cardsData)); // Update storage
+        card.remove(); // Remove from DOM
+        cardsEl.splice(index, 1); // Remove from cards array
+
+        // Adjust currentActiveCard if needed
+        if (currentActiveCard > index) currentActiveCard--;
+        if (currentActiveCard >= cardsEl.length) currentActiveCard = cardsEl.length - 1;
+
+        // Update active card class
+        cardsEl.forEach((c, i) => c.className = 'card'); // reset all
+        if(cardsEl[currentActiveCard]) cardsEl[currentActiveCard].classList.add('card', 'active');
+
+        updateCurrentText();
+        location.reload();
+    });
 
     // Add to DOM cards
     cardsEl.push(card);
